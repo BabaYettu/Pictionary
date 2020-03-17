@@ -1,0 +1,67 @@
+#canvas{
+	/* max-width: 98%;
+    max-height: 98%;
+    height: auto;
+    width: auto; */
+    margin: 30px auto;
+    background-color: white;
+    border: black 1px solid;
+}
+
+
+#couleurChoisie{
+	border: black 1px solid;
+    position: absolute;
+	height: 20px;
+	width: 20px;
+}
+
+#effacer{
+}
+
+tr,td{
+border: thin solid black;
+height: 20px;
+width: 20px;
+background-color: white;
+}
+
+#palette td:nth-child(1){
+background-color: red;
+}
+
+#palette td:nth-child(2){
+background-color: green;
+}
+
+#palette td:nth-child(3){
+background-color: blue;
+}
+
+#palette td:nth-child(4){
+background-color: cyan;
+}
+
+#palette td:nth-child(5){
+background-color: yellow;
+}
+
+#palette td:nth-child(6){
+background-color: magenta;
+}
+
+#palette td:nth-child(7){
+background-color: white;
+}
+
+#palette td:nth-child(8){
+background-color: lightgrey;
+}
+
+#palette td:nth-child(9){
+background-color: Grey;
+}
+
+#palette td:nth-child(10){
+background-color: Black;
+}
