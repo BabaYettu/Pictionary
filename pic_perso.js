@@ -7,48 +7,44 @@ function changerCouleur(){
 	$("#couleurChoisie").css("background-color", couleur);
 }	
 
-// function faire(){
-	// console.log("faire");
-	// if (clic){
-		// dessiner();
-		// setTimeout(faire, 2000);
-	// }
-	// else{
-		// return false;
-	// }
-// }
-
-var ev;
-
-function w(){
-	$("#canvas").mousemove(function(e){
-	ev = e;
-	dessiner();
-	}
-);}
-
-$("#canvas").mousedown(w);
-
-
-function dessiner(){
-	console.log(ev);
-	var X = ev.pageX - $("#canvas").offset().left;
-	var Y = ev.pageY - $("#canvas").offset().top;
-	ctx.fillStyle = $("#couleurChoisie").css("background-color");
-	ctx.lineWidth = 8;
-	ctx.beginPath();
-	ctx.arc(X, Y, 3, 0, 2 *Math.PI);
-	ctx.fill();
-}
-
-
-
-
-
 $("#palette td").click(changerCouleur);
 
+let isDrawing = false;
+let x = 0;
+let y = 0;
 
+const rect = canvas.getBoundingClientRect();
 
-/*$("#canvas").click(function(e){
-	f(e);
-	});*/
+canvas.addEventListener('mousedown', e => {
+  x = e.clientX - rect.left;
+  y = e.clientY - rect.top;
+  isDrawing = true;
+});
+
+canvas.addEventListener('mousemove', e => {
+  if (isDrawing === true) {
+	dessiner(ctx, x, y, e.clientX - rect.left, e.clientY - rect.top);
+	x = e.clientX - rect.left;
+	y = e.clientY - rect.top;
+  }
+});
+
+window.addEventListener('mouseup', e => {
+  if (isDrawing === true) {
+	dessiner(ctx, x, y, e.clientX - rect.left, e.clientY - rect.top);
+	x = 0;
+	y = 0;
+	isDrawing = false;
+  }
+});
+
+function dessiner(ctx, x1, y1, x2, y2) {
+  ctx.beginPath();
+  ctx.strokeStyle = $("#couleurChoisie").css("background-color");
+  ctx.lineWidth = 5;
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+  ctx.joinLine = "round";
+  ctx.closePath();
+}
