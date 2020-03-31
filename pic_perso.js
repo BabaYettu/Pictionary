@@ -13,11 +13,20 @@ function changerCouleur(){
 
 $("#palette td").click(changerCouleur);
 
+var s;
+
+$("#2").click(function(){
+	s = 10;
+});
+$("#3").click(function(){
+	s = 20;
+});
+
 $("#trait").click(function(){
 	let isDrawing = false;
 	let x = 0;
 	let y = 0;
-
+	s = 5;
 	const rect = canvas.getBoundingClientRect();
 
 	canvas.addEventListener('mousedown', e => {
@@ -43,10 +52,10 @@ $("#trait").click(function(){
 	  }
 	});
 
-	function dessiner(ctx, x1, y1, x2, y2) {
+	function dessiner(ctx, x1, y1, x2, y2, T) {
 	  ctx.beginPath();
 	  ctx.strokeStyle = $("#couleurChoisie").css("background-color");
-	  ctx.lineWidth = 5;
+	  ctx.lineWidth = s;
 	  ctx.moveTo(x1, y1);
 	  ctx.lineTo(x2, y2);
 	  ctx.joinLine = "round";
@@ -55,7 +64,6 @@ $("#trait").click(function(){
 	  ctx.closePath();
 	}
 });
-
 
 
 $("#gomme").click(function(){
