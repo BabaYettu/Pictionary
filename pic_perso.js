@@ -1,6 +1,10 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 
+canvas.style.position = 'absolute';       //css canvas
+canvas.style.top = "150px";
+canvas.style.left = "600px";
+
 
 function changerCouleur(){   
 	couleur = $(this).css("background-color");
