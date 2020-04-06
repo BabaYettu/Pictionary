@@ -60,12 +60,13 @@ $("#trait").click(function(){
 	  ctx.lineTo(x2, y2);
 	  ctx.joinLine = "round";
 	  ctx.lineCap = "round";
-	  ctx.stroke();	 
+	  ctx.stroke();
 	  ctx.closePath();
 	}
-});
-
-
-$("#gomme").click(function(){
+		
+	$("#gomme").click(function(){
 	
+	});
+
 });
+
